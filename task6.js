@@ -2,14 +2,14 @@ const names =  ["Alice", "Bob", "alice", "Eve", "BOB", "Charlie", "eve", "David"
 
 function removeDuplicateNames(names) {
     const uniqueNames = [];
-    const lowerNames = names.map(function(name) {
-        return name.toLowerCase();
+
+    names = names.map((name) => {
+        return name[0].toUpperCase() + name.slice(1).toLowerCase();
     })
 
-    lowerNames.forEach(function(name) {
-        let upperCaseName = name[0].toUpperCase() + name.slice(1);
-        if (uniqueNames.indexOf(upperCaseName) === -1) {
-            uniqueNames.push(upperCaseName);
+    names.forEach((name) => {
+        if (!uniqueNames.includes(name)) {
+            uniqueNames.push(name);
         }
     })
     return uniqueNames;
